@@ -4,7 +4,7 @@ title: 2D Space Shooter sample
 description: Learn more about physics movement and status effects using Netcode for GameObjects (Netcode) NetworkVariables and ObjectPooling .
 ---
 
-The [2D Space Shooter Project](https://github.com/Unity-Technologies/com.unity.multiplayer.samples.bitesize/tree/master/Basic/2DSpaceShooter) provides examples of physics, player health, and status effects using Netcode for GameObjects (Netcode). Technical features include[NetworkVariable](../../basics/networkvariable.md) and [ObjectPooling](../../advanced-topics/object-pooling.md).
+The [2D Space Shooter Project](https://github.com/Unity-Technologies/com.unity.multiplayer.samples.bitesize/tree/master/Basic/2DSpaceShooter) provides examples of physics, player health, and status effects using Netcode for GameObjects (Netcode). Technical features include [NetworkVariable](../../basics/networkvariable.md) and [ObjectPooling](../../advanced-topics/object-pooling.md).
 
 ## Server Authoritative Physics Movement
 
