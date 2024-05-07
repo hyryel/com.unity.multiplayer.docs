@@ -28,7 +28,7 @@ description: Release notes for Multiplayer Play Mode including new features, upd
 ### Features
 
 - Debug workflows now has dynamic layouts that persist between runs.
-- Players that are unresponsive will now result in a prompt appearing in the main editor asking if they should be restarted. (Only on Windows for now.)
+- Players that are unresponsive will now result in a prompt appearing in the Main Editor asking if they should be restarted. (Only on Windows for now.)
 - Now support for content selection in your players (Requires dedicated server package to be installed).
 
 ## [0.3.0] - 2023-07-26
@@ -57,8 +57,8 @@ description: Release notes for Multiplayer Play Mode including new features, upd
 ### Features
 
 * Display a message to the console log when opening Clones that don't have the required symlinked folders.
-* Trigger play mode for clones before main editor starts entering play mode.
-* Clone players will have the same behaviour as the main editor regarding the "Stop playing and compile" option.
+* Trigger play mode for clones before Main Editor starts entering play mode.
+* Clone players will have the same behaviour as the Main Editor regarding the "Stop playing and compile" option.
 
 ## [0.1.1] - 2023-01-26
 

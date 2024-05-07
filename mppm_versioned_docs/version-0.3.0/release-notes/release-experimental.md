@@ -30,8 +30,8 @@ description: Release notes for Multiplayer Play Mode including new features, upd
 ### Features
 
 * Display a message to the console log when opening Clones that don't have the required symlinked folders.
-* Trigger play mode for clones before main editor starts entering play mode.
-* Clone players will have the same behaviour as the main editor regarding the "Stop playing and compile" option.
+* Trigger play mode for clones before Main Editor starts entering play mode.
+* Clone players will have the same behaviour as the Main Editor regarding the "Stop playing and compile" option.
  
 ## [0.1.1] - 2023-01-26
 

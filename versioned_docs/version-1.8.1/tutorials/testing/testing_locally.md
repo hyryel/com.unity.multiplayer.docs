@@ -107,7 +107,7 @@ if (ParrelSync.ClonesManager.IsClone())
 
 - An important nuance is that **ParrelSync** doesn't sync changes made to packages. `Packages` folder is synced on clone opening, so if you made package changes - you should close and re-open your clones.
   - [Relevant GitHub issue](https://github.com/VeriorPies/ParrelSync/issues/48)
-- If you meet a Netcode error that mentions `soft sync` - that generally means that prefabs or scenes aren't in sync between editors. Save the project in the main editor via **File** > **Save Project** and refresh the projects in the clone editors by pressing `Ctrl + R` (which is by default done automatically) or reimport networked prefabs in the main editor.
+- If you meet a Netcode error that mentions `soft sync` - that generally means that prefabs or scenes aren't in sync between editors. Save the project in the Main Editor via **File** > **Save Project** and refresh the projects in the clone editors by pressing `Ctrl + R` (which is by default done automatically) or reimport networked prefabs in the Main Editor.
 - More information and general **ParrelSync** FAQ: https://github.com/VeriorPies/ParrelSync/wiki/Troubleshooting-&-FAQs
 - The ultimate workaround in case nothing helps - deleting and re-creating the clone instance via `ParrelSync->Clones Manager` window.
 
