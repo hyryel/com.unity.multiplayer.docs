@@ -11,11 +11,11 @@ Netcode for GameObjects also supports building games with a [distributed authori
 
 In a distributed authority setting, authority over NetworkObjects isn't bound to a single server, but distributed across clients depending on a NetworkObject's [ownership permission settings](#ownership-permission-settings). NetworkObjects with the distributable permission set are automatically distributed amongst clients as they connect and disconnect.
 
-When a client starts a distributed authority session it spawns its player, locks the local player's permissions so that no other client can take ownership, and then spawns some NetworkObjects. At this point, Client-A has full authority over the distributable spawned objects and its player object.
+When a client starts a distributed authority session it spawns its Player, locks the local Player's permissions so that no other client can take ownership, and then spawns some NetworkObjects. At this point, Client-A has full authority over the distributable spawned objects and its Player object.
 
 ![Distributed authority start](/img/distributed-authority-start.jpg)
 
-When another player joins, as in the diagram below, authority over distributable objects is split between both clients. Distributing the NetworkObjects in this way reduces the overall processing and bandwidth load for both clients. The same distribution happens when a player leaves, either gracefully or unexpectedly. The ownership and last known state of the subset of objects owned by the leaving player is transferred over to the remaining connected clients with no interruption in gameplay.
+When another Player joins, as in the diagram below, authority over distributable objects is split between both clients. Distributing the NetworkObjects in this way reduces the overall processing and bandwidth load for both clients. The same distribution happens when a Player leaves, either gracefully or unexpectedly. The ownership and last known state of the subset of objects owned by the leaving Player is transferred over to the remaining connected clients with no interruption in gameplay.
 
 ![Distributed authority new client](/img/distributed-authority-new-client.jpg)
 

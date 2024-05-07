@@ -5,7 +5,7 @@ created: 2023-01-24T17:55:53-06:00
 updated: 2023-01-24T18:28:58-06:00
 ---
 
-In a multiplayer game, clients might get disconnected from the server for a variety of reasons (such as network issues or application/device crashes). For those reasons, you might want to allow your players to reconnect to the game.
+In a multiplayer game, clients might get disconnected from the server for a variety of reasons (such as network issues or application/device crashes). For those reasons, you might want to allow your Players to reconnect to the game.
 
 # Considerations
 
@@ -37,7 +37,7 @@ If you want to avoid this behavior, you can:
 
 # Automatic reconnection
 
-For a smoother experience for your players, clients can automatically try to reconnect to a game when they lose a connection unexpectedly.
+For a smoother experience for your Players, clients can automatically try to reconnect to a game when they lose a connection unexpectedly.
 
 To implement automatic reconnection:
 
@@ -65,7 +65,7 @@ Depending on your game, you might want to add the following features as well:
 
 - Include multiple reconnection attempts in case of failure. You need to define the number of attempts, ensure that `NetworkManager` properly shuts down between each try, and reset the client's state (if needed).
 
-- Offer an option for players to cancel the reconnection process. This might be useful when there are a lot of reconnection attempts or when each try lasts a long duration.
+- Offer an option for Players to cancel the reconnection process. This might be useful when there are a lot of reconnection attempts or when each try lasts a long duration.
 
 ## Automatic reconnection example
 

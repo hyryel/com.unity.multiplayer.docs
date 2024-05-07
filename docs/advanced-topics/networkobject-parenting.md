@@ -26,7 +26,7 @@ If you aren't completely familiar with transform parenting in Unity, then it's h
   - Netcode for GameObjects will then synchronize all clients with the child's parenting and transform changes.
 
 :::tip
-When a NetworkObject is parented, Netcode for GameObjects synchronizes both the parenting information along with the child's transform values. Netcode for GameObjects uses the `WorldPositionStays` setting to decide whether to synchronize the local or world space transform values of the child NetworkObject component. This means that a NetworkObject component doesn't require you to include a NetworkTransform component if it never moves around, rotates, or changes its scale when it isn't parented. This can be beneficial for world items a player might pickup (parent the item under the player) and the item in question needs to adjustment relative to the player when it's parented or the parent is removed (dropped). This helps to reduce the item's over-all bandwidth and processing resources consumption.
+When a NetworkObject is parented, Netcode for GameObjects synchronizes both the parenting information along with the child's transform values. Netcode for GameObjects uses the `WorldPositionStays` setting to decide whether to synchronize the local or world space transform values of the child NetworkObject component. This means that a NetworkObject component doesn't require you to include a NetworkTransform component if it never moves around, rotates, or changes its scale when it isn't parented. This can be beneficial for world items a Player might pickup (parent the item under the Player) and the item in question needs to adjustment relative to the Player when it's parented or the parent is removed (dropped). This helps to reduce the item's over-all bandwidth and processing resources consumption.
 :::
 
 ### OnNetworkObjectParentChanged
@@ -67,9 +67,9 @@ If an invalid/unsupported NetworkObject component parenting action occurs, the a
 **For example:**
 If you had a NetworkObject component whose current parent was root and tried to parent it in an invalid way (such as under a GameObject without a NetworkObject component), it logs a warning message and the NetworkObject component reverts back to having root as its parent.
 
-### In-scene object parenting and player objects
+### In-scene object parenting and Player objects
 
-If you plan on parenting in-scene placed NetworkObject components with a player NetworkObject component when it's initially spawned, you need to wait until the client finishes synchronizing with the server first. Because you can only perform parenting on the server side, ensure you perform the parenting action only when the server has received the `NetworkSceneManager` generated `SceneEventType.SynchronizeComplete` message from the client that owns the player NetworkObject component to be parented (as a child or parent).
+If you plan on parenting in-scene placed NetworkObject components with a Player NetworkObject component when it's initially spawned, you need to wait until the client finishes synchronizing with the server first. Because you can only perform parenting on the server side, ensure you perform the parenting action only when the server has received the `NetworkSceneManager` generated `SceneEventType.SynchronizeComplete` message from the client that owns the Player NetworkObject component to be parented (as a child or parent).
 :::info For more information
 
 - [Real World In-scene NetworkObject Parenting of Players Solution](inscene_parenting_player.md) <br />
@@ -136,7 +136,7 @@ Player (GameObject->NetworkObject)
 Vehicle (GameObject->NetworkObject)
 ```
 
-Both the player and vehicle NetworkObject components are spawned and the player moves towards the vehicle and wants to get into the vehicle. The player's client sends perhaps a **use object** RPC command to the server. In turn, the server then parents the player under the vehicle and changes the player's model pose to sitting. Because both NetworkObject components are spawned and the server is receiving an RPC to perform the parenting action, the parenting action performed by the server is valid and the player is then parented under the vehicle as shown below:
+Both the Player and vehicle NetworkObject components are spawned and the Player moves towards the vehicle and wants to get into the vehicle. The Player's client sends perhaps a **use object** RPC command to the server. In turn, the server then parents the Player under the vehicle and changes the Player's model pose to sitting. Because both NetworkObject components are spawned and the server is receiving an RPC to perform the parenting action, the parenting action performed by the server is valid and the Player is then parented under the vehicle as shown below:
 
 ```
 Sun
@@ -158,7 +158,7 @@ Vehicle (GameObject->NetworkObject)
   └─ Seat2 (GameObject)
 ```
 
-In the above example, the vehicle has two GameObject components nested under the vehicle's root GameObject to represent the two available seats. If you tried to parent the player under Seat1:
+In the above example, the vehicle has two GameObject components nested under the vehicle's root GameObject to represent the two available seats. If you tried to parent the Player under Seat1:
 
 ```
 Sun
@@ -200,7 +200,7 @@ Vehicle (GameObject->NetworkObject)
   └─ Seat2 (GameObject->NetworkObject)
 ```
 
-3. Finally, some time later a player wants to get into the vehicle and the player is parented under Seat1:
+3. Finally, some time later a Player wants to get into the vehicle and the Player is parented under Seat1:
 
 ```
 Sun

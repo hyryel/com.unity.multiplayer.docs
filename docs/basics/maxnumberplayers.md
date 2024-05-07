@@ -1,13 +1,13 @@
 ---
 id: max-players
-title: Limiting the maximum number of players
+title: Limiting the maximum number of Players
 created: 2023-01-24T18:08:36-06:00
 updated: 2023-01-24T18:59:55-06:00
 ---
 
 Netcode for Gameobjects (Netcode) provides a way to customize the [connection approval process](connection-approval.md) that can reject incoming connections based on any number of user-specific reasons.
 
-Boss Room provides one example of how to handle limiting the number of players through the connection approval process:
+Boss Room provides one example of how to handle limiting the number of Players through the connection approval process:
 
 Boss Room provides an example of such delegate
 
@@ -18,7 +18,7 @@ https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop/blob/v2
 
 ​
 
-The code below shows an example of an over-capacity check that would prevent more than a certain pre-defined number of players from connecting.
+The code below shows an example of an over-capacity check that would prevent more than a certain pre-defined number of Players from connecting.
 
 ​
 

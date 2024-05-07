@@ -87,7 +87,7 @@ We pass in the overridden source network prefab we want to have instantiated and
 InstantiateAndSpawn(NetworkObject networkPrefab, ulong ownerClientId = NetworkManager.ServerClientId, bool destroyWithScene = false, bool isPlayerObject = false, bool forceOverride = false, Vector3 position = default, Quaternion rotation = default)
 ```
 
-Looking at the parameters, we can see it defaults to the server as the owner, ensures that the instantiated `NetworkObject` won't be destroyed if the scene is unloaded, is not spawned as a player, has a `forceOverride` parameter, and provides a way to set the position and rotation of the newly instantiated `NetworkObject`.
+Looking at the parameters, we can see it defaults to the server as the owner, ensures that the instantiated `NetworkObject` won't be destroyed if the scene is unloaded, is not spawned as a Player, has a `forceOverride` parameter, and provides a way to set the position and rotation of the newly instantiated `NetworkObject`.
 
 The `forceOverride` parameter, when set to true, will use the override whether you're running as either server or host.
 
@@ -126,7 +126,7 @@ If you have `GameObject` children, with `NetworkBehaviour` components attached, 
 
 ## Dynamically Spawned Network Prefabs
 
-Netcode for GameObjects uses the term "dynamically spawned" to convey that the `NetworkObject` is being spawned via user specific code. Whereas a player or in-scene placed `NetworkObject` (with scene management enabled) is typically spawned by Netcode for GameObjects. There are several ways to spawn a network Prefab via code:
+Netcode for GameObjects uses the term "dynamically spawned" to convey that the `NetworkObject` is being spawned via user specific code. Whereas a Player or in-scene placed `NetworkObject` (with scene management enabled) is typically spawned by Netcode for GameObjects. There are several ways to spawn a network Prefab via code:
 
 ### Dynamic Spawning (non-pooled):
 
@@ -171,7 +171,7 @@ This type of dynamically spawned `NetworkObject` typically is a simple wrapper c
     }
 ```
 
-Consumable and/or items that can be picked up by a player or NPC(that is, a weapon, health, potion, etc.) would be some examples of when you might want to use non-pooled dynamically spawned `NetworkObjects`.
+Consumable and/or items that can be picked up by a Player or NPC(that is, a weapon, health, potion, etc.) would be some examples of when you might want to use non-pooled dynamically spawned `NetworkObjects`.
 
 :::caution
 While the NonPooledDynamicSpawner example is one of the simplest ways to spawn a NetworkObject, there is a memory allocation cost associated with instantiating and destroying the GameObject and all attached components. This design pattern can sometimes be all you need for the netcode game asset you are working with, and other times you might want to respawn/re-use the object instance. When performance is a concern and you want to spawn more than just one `NetworkObject` during the lifetime of the spawner or want to repeatedly respawn a single `NetworkObject`, the less proccessor and memory allocation intensive technique is to use [pooled dynamic spawning](#pooled-dynamic-spawning).

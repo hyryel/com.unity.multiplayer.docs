@@ -9,7 +9,7 @@ The race conditions described on this page only affect games using a [distribute
 
 :::
 
-Ownership race conditions can occur when two players (clients) want to take ownership of the same NetworkObject at the same time. The following diagram illustrates a typical race condition where two clients (A and B) want to take ownership of an object (the star owned by Client-C) simultaneously.
+Ownership race conditions can occur when two Players (clients) want to take ownership of the same NetworkObject at the same time. The following diagram illustrates a typical race condition where two clients (A and B) want to take ownership of an object (the star owned by Client-C) simultaneously.
 
 ![Race condition](/img/race-condition.jpg)
 

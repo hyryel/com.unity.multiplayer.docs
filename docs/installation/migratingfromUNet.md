@@ -364,14 +364,14 @@ using UnityEngine.Networking.NetworkSystem;
 
 class MyManager : NetworkManager
 {
-    public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
+    public override void OnServerAddPlayer(NetworkConnection conn, short PlayerControllerId, NetworkReader extraMessageReader)
     {
         if (extraMessageReader != null)
         {
             var s = extraMessageReader.ReadMessage<StringMessage>();
             Debug.Log("my name is " + s.value);
         }
-        OnServerAddPlayer(conn, playerControllerId, extraMessageReader);
+        OnServerAddPlayer(conn, PlayerControllerId, extraMessageReader);
     }
 }
 ```
@@ -397,7 +397,7 @@ private void ApprovalCheck(byte[] connectionData, ulong clientId, NetworkManager
     bool approve = true;
     bool createPlayerObject = true;
 
-    // The Prefab hash. Use null to use the default player prefab
+    // The Prefab hash. Use null to use the default Player prefab
     // If using this hash, replace "MyPrefabHashGenerator" with the name of a Prefab added to the NetworkPrefabs field of your NetworkManager object in the scene
     ulong? prefabHash = NetworkpawnManager.GetPrefabHashFromGenerator("MyPrefabHashGenerator");
 

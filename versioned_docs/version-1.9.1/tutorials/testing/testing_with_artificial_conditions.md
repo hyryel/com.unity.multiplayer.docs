@@ -64,7 +64,7 @@ Don't forget to disable it once you're done debugging, else your network connect
 QA teams run playtests with multiple people, each with their own system-wide conditioning settings. We can imitate this workflow locally by setting different per-peer network conditions. This approach isn't as reflective of reality as good QA tests on different machines, but it allows us to test these more peculiar scenarios locally.
 :::
 
-There is a group of scenarios where we would want to test how the game behaves when a player with a different baseline connection quality from most of our other peers joins the game - an example of such case can be someone playing from a significantly remote location or connecting from a device that's on a mobile network.
+There is a group of scenarios where we would want to test how the game behaves when a Player with a different baseline connection quality from most of our other peers joins the game - an example of such case can be someone playing from a significantly remote location or connecting from a device that's on a mobile network.
 
 In this case we would want to have an ability to set artificial conditions on a per-peer basis, which is possible with the [Network Simulator tool](https://docs-multiplayer.unity3d.com/tools/current/tools-network-simulator/).
 

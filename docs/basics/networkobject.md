@@ -75,19 +75,19 @@ When you want to de-spawn and destroy the owner but you don't want to destroy a 
 
 ## Player NetworkObjects
 
-Player objects are an optional feature in Netcode you can use to assign a networked object to a specific client. A client can always only have at most one player object.
+Player objects are an optional feature in Netcode you can use to assign a networked object to a specific client. A client can always only have at most one Player object.
 
 :::note
 
 If you want a client to control more than on NetworkObject, use the ownership methods described above under the ownership section.
 
-If you want to be able to assign a unique player Prefab on a per client connection basis, use client [connection approval](connection-approval.md).
+If you want to be able to assign a unique Player Prefab on a per client connection basis, use client [connection approval](connection-approval.md).
 
 :::
 
 ### Creating a PlayerObject
 
-Netcode can spawn a default PlayerObject for you. If you enable **Create Player Prefab** (true) in the NetworkManager and you assign a valid Prefab to the Player Prefab, then Netcode spawns a unique instance of the designated player Prefab for each connected and approved client.
+Netcode can spawn a default PlayerObject for you. If you enable **Create Player Prefab** (true) in the NetworkManager and you assign a valid Prefab to the Player Prefab, then Netcode spawns a unique instance of the designated Player Prefab for each connected and approved client.
 
 To manually spawn an object as PlayerObject, use the following method:
 
@@ -97,7 +97,7 @@ GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
 
 :::note
 
-If the player already had a Prefab instance assigned, then the client owns the NetworkObject of that Prefab instance unless there's additional server-side specific user code that removes or changes the ownership.
+If the Player already had a Prefab instance assigned, then the client owns the NetworkObject of that Prefab instance unless there's additional server-side specific user code that removes or changes the ownership.
 
 :::
 
@@ -117,7 +117,7 @@ Conversely, on the server-side, if you need to get the PlayerObject instance for
 NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
 ```
 
-To find your own player object just pass `NetworkManager.Singleton.LocalClientId` as the `clientId` in the sample above.
+To find your own Player object just pass `NetworkManager.Singleton.LocalClientId` as the `clientId` in the sample above.
 
 ## Network prefabs
 

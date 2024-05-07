@@ -19,8 +19,8 @@ The Netcode messaging system provides you with the ability to handle sending and
 ### Remote Procedure Calls
 RPCs can be viewed as a way to send an event notification as well as a way to handle direct communication between a server and a client (or vice versa).  This is sometimes useful when the ownership scope of the `NetworkBehavior`, that the remote procedure call is declared within, belongs to the server but you still want one or more clients to be able to communicate with the associated `NetworkObject`.  
 **Some Usage Examples:**
-- An Rpc with `SendTo.Server` can be used by a client to notify the server that the player is trying to use a world object (that is, a door, a vehicle, etc.)
-- A second Rpc with `SendTo.SpecifiedInParams` can be used by a server to notify a specific client of a special reconnection key or some other player specific information that doesn't require its state to be synchronized with all current and any future late joining client(s).
+- An Rpc with `SendTo.Server` can be used by a client to notify the server that the Player is trying to use a world object (that is, a door, a vehicle, etc.)
+- A second Rpc with `SendTo.SpecifiedInParams` can be used by a server to notify a specific client of a special reconnection key or some other Player specific information that doesn't require its state to be synchronized with all current and any future late joining client(s).
 
 **The are several types of RPC methods,** but most are circumstantial. The ones you are most likely to use are:
 

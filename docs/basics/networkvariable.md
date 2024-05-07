@@ -253,10 +253,10 @@ There are two options for reading a `NetworkVariable.Value`:
 - *Everyone(_default_):* this means the owner and non-owners of the `NetworkObject` can read the value.
     - This is useful for "global states" that everyone should be aware of.  
     - We provided an example of maintaining a door's open or closed state using the everyone permission.
-        - You might also use this for player scores, health, or any other state that "everyone" should know about.
+        - You might also use this for Player scores, health, or any other state that "everyone" should know about.
 - *Owner:* This means only the owner of the `NetworkObject` and the server can read the value.
-    - This is useful if your `NetworkVariable` represents something specific to the client's player that only the server and client should know about
-        - This might be a player's inventory or gun's ammo count (etc.)
+    - This is useful if your `NetworkVariable` represents something specific to the client's Player that only the server and client should know about
+        - This might be a Player's inventory or gun's ammo count (etc.)
 
 ### Write Permissions
 
@@ -265,12 +265,12 @@ There are two options for writing a `NetworkVariable.Value`:
     - This is useful for server side specific states that all clients should should be aware of but can't change.
         - Some examples would be an NPC's status (health, alive, dead, etc) or some global world environment state (that is, is it night or day time?).
 - *Owner:* This means only the owner of the `NetworkObject` can write to the value.
-    - This is useful if your `NetworkVariable` represents something specific to the client's player that only the owning client should be able to set
-        - This might be a player's skin or other cosmetics
+    - This is useful if your `NetworkVariable` represents something specific to the client's Player that only the owning client should be able to set
+        - This might be a Player's skin or other cosmetics
 
 ### Permissions Example
 
-The below example provides you with a few different permissions configurations that you might use in a game while keeping track of a player's state.
+The below example provides you with a few different permissions configurations that you might use in a game while keeping track of a Player's state.
 
 ```csharp
 public class PlayerState : NetworkBehaviour
@@ -286,9 +286,9 @@ public class PlayerState : NetworkBehaviour
     /// <summary>
     /// Owner Read Permissions: Owner or server can read
     /// Owner Write Permissions: Only the Owner can write
-    /// A player's ammo count is something that you might want, for convenience sake, the
+    /// A Player's ammo count is something that you might want, for convenience sake, the
     /// client-side to update locally. This might be because you are trying to reduce
-    /// bandwidth consumption for the server and all non-owners/ players or you might be
+    /// bandwidth consumption for the server and all non-owners/ Players or you might be
     /// trying to incorporate a more client-side "hack resistant" design where non-owners
     /// are never synchronized with this value.
     /// </summary>
@@ -297,9 +297,9 @@ public class PlayerState : NetworkBehaviour
 
     /// <summary>
     /// Owner Write & Everyone Read Permissions:
-    /// A player's model's skin selection index. You might have the option to allow players
-    /// to select different skin materials as a way to further encourage a player's personal
-    /// association with their player character.  It would make sense to make the permissions
+    /// A Player's model's skin selection index. You might have the option to allow Players
+    /// to select different skin materials as a way to further encourage a Player's personal
+    /// association with their Player character.  It would make sense to make the permissions
     /// setting of the NetworkVariable such that the client can change the value, but everyone
     /// will be notified when it changes to visually reflect the new skin selection.
     /// </summary>
@@ -308,8 +308,8 @@ public class PlayerState : NetworkBehaviour
 
     /// <summary>
     /// Owner Read & Server Write Permissions:
-    /// You might incorporate some form of reconnection logic that stores a player's state on
-    /// the server side and can be used by the client to reconnect a player if disconnected
+    /// You might incorporate some form of reconnection logic that stores a Player's state on
+    /// the server side and can be used by the client to reconnect a Player if disconnected
     /// unexpectedly.  In order for the client to let the server know it's the "same client"
     /// you might have implemented a keyed array (that is, Hashtable, Dictionary, etc, ) to track
     /// each connected client. The key value for each connected client would only be written to
@@ -340,10 +340,10 @@ Almost all of our examples have been focused around numeric [Value Types](https:
 For this example, we are extending the previous `PlayerState` class to include some complex types to handle a weapon boosting game play mechanic.  We will explore two complex values types:
 - *WeaponBooster:* A power-up weapon booster that can only be assigned/applied by the client.
   - This is a simple example of a "complex" type.
-- *AreaWeaponBooster:* A second kind of "weapon booster" power-up that players can deploy at a specific location, and any team members within the radius of the `AreaWeaponBooster` will have the weapon booster applied.
+- *AreaWeaponBooster:* A second kind of "weapon booster" power-up that Players can deploy at a specific location, and any team members within the radius of the `AreaWeaponBooster` will have the weapon booster applied.
   - This is an example of a nested complex type.
 
-For the `WeaponBooster`, we only need one NetworkVariable to handle synchronizing everyone with any currently active player-local `WeaponBooster`. However, with the `AreaWeaponBooster` we must consider what happens if you have 8 team members that can, at any given moment, deploy one a `AreaWeaponBooster`?  It would require, at a minimum, a list of all deployed and currently active `AreaWeaponBooster`s.  For this task, we will use a `NetworkList` as opposed to a `NetworkVariable`.
+For the `WeaponBooster`, we only need one NetworkVariable to handle synchronizing everyone with any currently active Player-local `WeaponBooster`. However, with the `AreaWeaponBooster` we must consider what happens if you have 8 team members that can, at any given moment, deploy one a `AreaWeaponBooster`?  It would require, at a minimum, a list of all deployed and currently active `AreaWeaponBooster`s.  For this task, we will use a `NetworkList` as opposed to a `NetworkVariable`.
 
 First, let's review over the below `PlayerState` additions along with the `WeaponBooster` structure (complex type):
 
@@ -352,11 +352,11 @@ public class PlayerState : NetworkBehaviour
 {
     // ^^^^^^^ including all code from previous example ^^^^^^^
 
-    // The weapon booster currently applied to a player
-    private NetworkVariable<WeaponBooster> PlayerWeaponBooster = new NetworkVariable<WeaponBooster>();
+    // The weapon booster currently applied to a Player
+    private NetworkVariable<WeaponBooster> playerWeaponBooster = new NetworkVariable<WeaponBooster>();
 
     /// <summary>
-    /// A list of team members active "area weapon boosters" that can be applied if the local player
+    /// A list of team members active "area weapon boosters" that can be applied if the local Player
     /// is within their range.
     /// </summary>
     private NetworkList<AreaWeaponBooster> TeamAreaWeaponBoosters;
@@ -412,7 +412,7 @@ public class PlayerState : NetworkBehaviour
 /// <summary>
 /// Example: Complex Type
 /// This is an example of how one might handle tracking any weapon booster currently applied
-/// to a player.
+/// to a Player.
 /// </summary>
 public struct WeaponBooster : INetworkSerializable, System.IEquatable<WeaponBooster>
 {
@@ -451,7 +451,7 @@ The above first half of the example code shows how a complex type that implement
 /// the "weapon booster" information of an AreaWeaponBooster.  It then provides additional
 /// information that would allow clients to easily determine, based on location and radius,
 /// if it should add (for example) a special power up HUD symbol or special-FX to the local
-/// player.
+/// Player.
 /// </summary>
 public struct AreaWeaponBooster : INetworkSerializable, System.IEquatable<AreaWeaponBooster>
 {

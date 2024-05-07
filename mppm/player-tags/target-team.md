@@ -1,6 +1,6 @@
 ---
 id: target-team
-title: Use Player Tags to assign a player to a team
+title: Use Player Tags to assign a Player to a team
 description: Automatically assign Players to different teams in Multiplayer Play Mode.
 ---
 
@@ -23,7 +23,7 @@ using Unity.Multiplayer.Playmode;
 
 public enum Team { Blue, Red, }
 
-/// A player with a team that is automatically assigned
+/// A Player with a team that is automatically assigned
 /// based on the Player Tag of the client that owns them
 public class Player : NetworkBehaviour
 {

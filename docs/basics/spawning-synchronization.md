@@ -7,17 +7,17 @@ Ensuring that objects spawn in a synchronized manner across clients can be diffi
 
 ## Spawning synchronization in client-server
 
-Due to the restrictive nature of only the server having the authority to spawn objects, visual anomalies between clients are common in [client-server](../terms-concepts/client-server.md) contexts. This typically occurs when using an owner-authoritative motion model, also known as a ClientNetworkTransform, and trying to visually synchronize the spawning of an object relative to a local player's current position (for example, a player shooting a projectile).
+Due to the restrictive nature of only the server having the authority to spawn objects, visual anomalies between clients are common in [client-server](../terms-concepts/client-server.md) contexts. This typically occurs when using an owner-authoritative motion model, also known as a ClientNetworkTransform, and trying to visually synchronize the spawning of an object relative to a local Player's current position (for example, a Player shooting a projectile).
 
 ![Client server spawn synchronization](/img/client-server-spawn-sync.jpg)
 
-In the diagram above, a client-owned object (a player) is in motion while firing a projectile. The code implementing this behavior involves sending a message (typically an [RPC](../advanced-topics/messaging-system.md)) from the client to the server to get an object to spawn based on the player's input. Due to the latency involved in sending this message to the server and then propagating the resulting spawn message across all clients, including back to the initiating client, the spawn projectile message reaches the initiating client after the client's local player has moved, resulting in a visual disconnect between the local player and the projectile.
+In the diagram above, a client-owned object (a Player) is in motion while firing a projectile. The code implementing this behavior involves sending a message (typically an [RPC](../advanced-topics/messaging-system.md)) from the client to the server to get an object to spawn based on the Player's input. Due to the latency involved in sending this message to the server and then propagating the resulting spawn message across all clients, including back to the initiating client, the spawn projectile message reaches the initiating client after the client's local Player has moved, resulting in a visual disconnect between the local Player and the projectile.
 
 These types of issues are commonly resolved using a client prediction system or by separating the visual representation of the projectile from the NetworkObject and writing a script that moves the visual representation in the desired direction of the yet-to-be-spawned NetworkObject and then synchronizing the two over time once the NetworkObject is spawned. Both approaches are complex to implement in a client-server topology.
 
 ## Spawning synchronization in distributed authority
 
-Managing spawning synchronization is easier in [distributed authority](../terms-concepts/distributed-authority.md) contexts, because the authority to spawn objects is shared between clients. Instead of a client having to send an RPC to the server, wait roughly the round trip time (RTT) between itself and the server-host, and then receive and process the spawn message, the client just spawns the projectile in the precise position desired relative to the player object, as explained in the diagram below.
+Managing spawning synchronization is easier in [distributed authority](../terms-concepts/distributed-authority.md) contexts, because the authority to spawn objects is shared between clients. Instead of a client having to send an RPC to the server, wait roughly the round trip time (RTT) between itself and the server-host, and then receive and process the spawn message, the client just spawns the projectile in the precise position desired relative to the Player object, as explained in the diagram below.
 
 ![Distributed authority spawn synchronization](/img/distributed-authority-spawn-sync.jpg)
 
@@ -35,7 +35,7 @@ Distributed authority also provides a simpler way to visually synchronize the de
 
 Below are two example scripts, one that handles spawning using the client-server mode, and one that uses distributed authority mode.
 
-* The client-server script requires splitting the logic between client and server. The client has to send a message to the server in order to spawn the projectile, which introduces the latency previously described between a player's motion and the projectile being spawned.
+* The client-server script requires splitting the logic between client and server. The client has to send a message to the server in order to spawn the projectile, which introduces the latency previously described between a Player's motion and the projectile being spawned.
 * With distributed authority, spawning follows a more traditional single-player usage pattern. The notable difference from the client-server approach is that there's no need to send a message to a server in order to spawn the NetworkObject.
 
 ### Client-server
@@ -43,8 +43,8 @@ Below are two example scripts, one that handles spawning using the client-server
 ```
 /// <summary>
 /// Client-Server Spawning
-/// Pseudo player weapon that is assumed to be
-/// attached to a fixed child node of the player.
+/// Pseudo Player weapon that is assumed to be
+/// attached to a fixed child node of the Player.
 /// (i.e. like a hand node or the like)
 /// </summary>
 public class PlayerWeapon : NetworkBehaviour
@@ -99,8 +99,8 @@ public class PlayerWeapon : NetworkBehaviour
 
 ```
 /// <summary>
-/// Pseudo player weapon that is assumed to be
-/// attached to a fixed child node of the player.
+/// Pseudo Player weapon that is assumed to be
+/// attached to a fixed child node of the Player.
 /// (i.e. like a hand node or the like)
 /// </summary>
 public class PlayerWeapon : NetworkBehaviour

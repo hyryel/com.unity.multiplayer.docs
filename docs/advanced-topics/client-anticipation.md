@@ -32,7 +32,7 @@ lightImageSrc="/sequence_diagrams/Anticipation/ClientAnticipation.png?text=Light
 darkImageSrc="/sequence_diagrams/Anticipation/ClientAnticipation_Dark.png?text=DarkMode"/>
 </figure>
 
-This creates a responsive feel to the gameplay, allowing the client player to feel as if things are responding immediately to their input and concealing latency.
+This creates a responsive feel to the gameplay, allowing the client Player to feel as if things are responding immediately to their input and concealing latency.
 
 ## The anticipated value
 
@@ -61,7 +61,7 @@ lightImageSrc="/sequence_diagrams/Anticipation/StaleDataNoPolicy.png?text=LightM
 darkImageSrc="/sequence_diagrams/Anticipation/StaleDataNoPolicy_Dark.png?text=DarkMode"/>
 </figure>
 
-To address this, Netcode for GameObjects's client anticipation includes a feature called `StaleDataHandling`. Stale data is determined based on assumptions about causation - it assumes that, when you make an anticipation on the client side based on player input, an RPC is sent to the server at the same time requesting it to make the same change. It uses a continuously incrementing `AnticipationCounter` to track when the server has received and responded to the batch of requests that was sent on the same frame as the variable was anticipated. If an update for a variable arrives before the server has processed that message, the anticipation system regards that data as being stale.
+To address this, Netcode for GameObjects's client anticipation includes a feature called `StaleDataHandling`. Stale data is determined based on assumptions about causation - it assumes that, when you make an anticipation on the client side based on Player input, an RPC is sent to the server at the same time requesting it to make the same change. It uses a continuously incrementing `AnticipationCounter` to track when the server has received and responded to the batch of requests that was sent on the same frame as the variable was anticipated. If an update for a variable arrives before the server has processed that message, the anticipation system regards that data as being stale.
 
 There are two ways you can respond to stale data, which are determined by the `StaleDataHandling` value on each `AnticipatedNetworkVariable` and `AnticipatedNetworkTransform`:
 
@@ -78,7 +78,7 @@ darkImageSrc="/sequence_diagrams/Anticipation/StaleDataIgnore_Dark.png?text=Dark
 </figure>
 
 ### StaleDataHandling.Reanticipate
-If `StaleDataHandling` is set to `StaleDataHandling.Reanticipate`, stale data is treated the same way as any other server data updates. The value is rolled back, `ShouldReanticipate` is set to true, and the [`OnReanticipate` event](#onreanticipate-event) fires. In typical client prediction systems, this generally involves replaying the player's input from the time of the incoming data to now, which results in re-performing the switch to red.
+If `StaleDataHandling` is set to `StaleDataHandling.Reanticipate`, stale data is treated the same way as any other server data updates. The value is rolled back, `ShouldReanticipate` is set to true, and the [`OnReanticipate` event](#onreanticipate-event) fires. In typical client prediction systems, this generally involves replaying the Player's input from the time of the incoming data to now, which results in re-performing the switch to red.
 
 <figure>
 <ImageSwitcher 
@@ -110,7 +110,7 @@ If you want to implement a full client-side prediction model in your game, the g
 
 Most anticipations will be correct and the server will update the state to the same value. Sometimes, however, the server will have a different result, since latency can cause the server state to change before it receives your command in ways that affect the result. When this happens, by default, the value will be snapped to the new server value.
 
-This can result in an undesirable player experience, causing things that normally move smoothly to become choppy. When this happens, you can smooth out the result by using the `Smooth()` function on both `AnticipatedNetworkVariable` and `AnticipatedNetworkTransform`.
+This can result in an undesirable Player experience, causing things that normally move smoothly to become choppy. When this happens, you can smooth out the result by using the `Smooth()` function on both `AnticipatedNetworkVariable` and `AnticipatedNetworkTransform`.
 
 `Smooth()` takes a starting position (usually the previous anticipated value), a final position (usually the new anticipated value or the current authoritative value), and a duration over which to perform the smoothing. For `AnticipatedNetworkVariable`, because the type is generic, it also requires a delegate to use to perform the smoothing operation (which takes a from value, a to value, and a percent value, and in many cases may just be `Mathf.Lerp`).
 
@@ -118,7 +118,7 @@ For convenience, you can use `PreviousAnticipatedValue` and `PreviousAnticipated
 
 ### Server-side smoothing
 
-Even though these concepts are mostly for client-side use, there are cases where you might want to perform server-side smoothing as well. For example, when running in host mode, the host player sees the movement of other players. Due to latency and jitter, input updates from remote clients may not arrive every frame, which may result in choppy movement of an `AnticipatedNetworkTransform`, for example.
+Even though these concepts are mostly for client-side use, there are cases where you might want to perform server-side smoothing as well. For example, when running in host mode, the host Player sees the movement of other Players. Due to latency and jitter, input updates from remote clients may not arrive every frame, which may result in choppy movement of an `AnticipatedNetworkTransform`, for example.
 
 To address this, you can also use the `Smooth()` function at any time on the server side. The server doesn't do anticipation, so it will not get any `OnReanticipate()` events, but you can, for example, call `Smooth()` each time you receive an input from the client to smooth the motion between the previous position and the new one.
 

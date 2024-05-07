@@ -13,7 +13,7 @@ In addition to the visual latency issues described on the [spawning synchronizat
 
 ## Why deferred despawning
 
-Issues with despawning occur when objects are despawned too early. The client that owns the projectile detects a collision, triggers any local animations, and despawns the projectile locally. For the player being hit, they see the projectile despawn before it reaches them and animations can appear to trigger at the wrong point in time. This can be seen in the diagram below.
+Issues with despawning occur when objects are despawned too early. The client that owns the projectile detects a collision, triggers any local animations, and despawns the projectile locally. For the Player being hit, they see the projectile despawn before it reaches them and animations can appear to trigger at the wrong point in time. This can be seen in the diagram below.
 
 ![Without deferred despawning](/img/without-deferred-despawning.jpg)
 

@@ -26,7 +26,7 @@ Video published 14th Nov 2021
 
 This Unity Multiplayer tutorial will teach you how to implement:
 - NetworkVariable types and how to use them
-- Network Transforms to synchronize player position across the network
+- Network Transforms to synchronize Player position across the network
 - Synchronization of Player HUD over many clients
 - Player client controller and Network Behaviors
 - How and why should you use ServerRpc (Remote Procedure Calls)
@@ -48,10 +48,10 @@ Dilmer takes a look at the Network Animator component and how you can synchronis
 <ul>
 <li> NetworkAnimator component</li>
 <li> NetworkVariables Vector3 and permissions</li>
-<li> NetworkVariables with enum type for player state</li>
-<li>Using CharacterController to control the player</li>
-<li>Using ServerRpc to keep track of player state</li>
-<li>Animation state based on NetworkVariable player state</li>
+<li> NetworkVariables with enum type for Player state</li>
+<li>Using CharacterController to control the Player</li>
+<li>Using ServerRpc to keep track of Player state</li>
+<li>Animation state based on NetworkVariable Player state</li>
 </ul>
 
 <Iframe url="https://www.youtube.com/embed/GOtE96OKyVA"

@@ -14,7 +14,7 @@ Without any kind of compensation for latency, the client performs two simple ope
 
 This is a conservative approach that never shows an incorrect user state, but exposes users directly to the effects of latency. Regardless of the client's potential frame rate, the game will only ever run at the speed the server (with its limiting [network factors](lagandpacketloss.md#network-latency)) is capable of, which can severely reduce frame rates and produce perceivable input lag. It also produces an uneven game speed, as jitter in the network causes states to arrive and be rendered at inconsistent intervals.
 
-In addition to reduced responsiveness, this approach can also directly interfere with gameplay in certain genres such as first-person shooters. Because the information from the server is always slightly behind, due to network latency, players are forced to aim ahead of their target to compensate.
+In addition to reduced responsiveness, this approach can also directly interfere with gameplay in certain genres such as first-person shooters. Because the information from the server is always slightly behind, due to network latency, Players are forced to aim ahead of their target to compensate.
 
 ## With client-side interpolation
 

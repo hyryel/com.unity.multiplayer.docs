@@ -35,7 +35,7 @@ https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop/blob/v2
 
 ## Breakable state
 
-Boss Room might have used a "break" `RPC` to set a breakable object as broken and play the appropriate visual effects. Applying the "replicate information when a player joins the game mid-game" rule of thumb, the Boss Room development team used `NetworkVariable`s instead. Boss Room uses the `OnValueChanged` callback on those values to play the visual effects (and an initial check when spawning the `NetworkBehaviour`).
+Boss Room might have used a "break" `RPC` to set a breakable object as broken and play the appropriate visual effects. Applying the "replicate information when a Player joins the game mid-game" rule of thumb, the Boss Room development team used `NetworkVariable`s instead. Boss Room uses the `OnValueChanged` callback on those values to play the visual effects (and an initial check when spawning the `NetworkBehaviour`).
 
 ```csharp reference
 
@@ -69,4 +69,4 @@ https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop/blob/v2
 
 Boss Room syncs all character and object hit points through `NetworkVariable`s, making it easy to collect data.
 
-If Boss Room synced this data through `RPC`s, Boss Room would need to keep a list of `RPC`s to send to connecting players to ensure they get the latest hit point values for each object. Keeping a list of `RPC`s for each object to send to those `RPC`s on connecting would be a maintainability nightmare. By using `NetworkVariable`s, Boss Room lets the SDK do the work.
+If Boss Room synced this data through `RPC`s, Boss Room would need to keep a list of `RPC`s to send to connecting Players to ensure they get the latest hit point values for each object. Keeping a list of `RPC`s for each object to send to those `RPC`s on connecting would be a maintainability nightmare. By using `NetworkVariable`s, Boss Room lets the SDK do the work.

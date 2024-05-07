@@ -22,7 +22,7 @@ Typically you will interact with `NetworkUpdateLoop` for registration and `INetw
 
 ## Update Stages
 
-After injection, the player loops follows these stages. The player loop executes the `Initialization` stage and that invokes `NetworkUpdateLoop`'s `RunNetworkInitialization` method which iterates over registered `INetworkUpdateSystems` in `m_Initialization_Array` and calls `INetworkUpdateSystem.NetworkUpdate(UpdateStage)` on them.
+After injection, the Player loops follows these stages. The Player loop executes the `Initialization` stage and that invokes `NetworkUpdateLoop`'s `RunNetworkInitialization` method which iterates over registered `INetworkUpdateSystems` in `m_Initialization_Array` and calls `INetworkUpdateSystem.NetworkUpdate(UpdateStage)` on them.
 
 In all `NetworkUpdateStages`, it iterates over an array and calls the `NetworkUpdate` method over `INetworkUpdateSystem` interface, and the pattern is repeated.
 
