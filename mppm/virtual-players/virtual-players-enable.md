@@ -1,10 +1,10 @@
 ---
 id: virtual-players-enable
-title: Enable virtual players
+title: Enable Virtual Players
 description: Enable up to 3 additional Virtual Players to your Main Editor Player in Multiplayer Play Mode.
 ---
 :::important
-You can only attach **Player Tags** to inactive players (including the **Main Editor Player**). If you plan to use **Player Tags**, [create and configure your tags](../player-tags/player-tags-create.md) before you enable virtual players.
+You can only attach **Player Tags** to inactive players (including the **Main Editor Player**). If you plan to use **Player Tags**, [create and configure your tags](../player-tags/player-tags-create.md) before you enable Virtual Players.
 :::
 
 :::note

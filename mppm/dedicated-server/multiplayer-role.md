@@ -1,7 +1,7 @@
 ---
 id: multiplayer-role
-title: Assign virtual players to a multiplayer role
-description: Learn how to use the dedicated server package to assign virtual players to a multiplayer role.
+title: Assign Virtual Players to a multiplayer role
+description: Learn how to use the dedicated server package to assign Virtual Players to a multiplayer role.
 ---
 
 Install the [Dedicated Server package](https://docs.unity3d.com/Packages/com.unity.dedicated-server@1.0/manual/index.html) with Multiplayer Play Mode to switch players between the server and client role without a script.
@@ -14,10 +14,10 @@ To set the role of a the Main Editor player, do the following:
 2. In the **Main Editor Player** section, expand the **Multiplayer Role** dropdown.
 3. Select the [multiplayer role](https://docs.unity3d.com/Packages/com.unity.dedicated-server@1.0/manual/multiplayer-roles.html) you want the Main Editor to use.
 
-## Set the multiplayer role of a virtual player
+## Set the multiplayer role of a Virtual Player
 
-To set the role of a [virtual player](../../virtual-players), do the following:
+To set the role of a [Virtual Player](../../virtual-players), do the following:
 
  1. Open the Multiplayer Play Mode inspector (**Multiplayer** > **Multiplayer Play Mode**).
- 2. In the **Virtual Players** section, expand a virtual player's **Multiplayer Role** dropdown.
+ 2. In the **Virtual Players** section, expand a Virtual Player's **Multiplayer Role** dropdown.
  3. Select the [multiplayer role](https://docs.unity3d.com/Packages/com.unity.dedicated-server@1.0/manual/multiplayer-roles.html) you want this player to use.

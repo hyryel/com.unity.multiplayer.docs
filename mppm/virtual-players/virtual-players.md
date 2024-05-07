@@ -1,6 +1,6 @@
 ---
 id: virtual-players
-title: Virtual players
+title: Virtual Players
 description: Add Virtual Players to your Main Editor Player in Multiplayer Play Mode.
 ---
 
@@ -16,6 +16,6 @@ This section contains the following information:
 
 | **Page**                                              | **Description**                                        |
 |-|-|
-| [Enable virtual players](../virtual-players/virtual-players-enable)   | Set up virtual players and assign Player Tags.         |
-| [Focus the Multiplayer Play Mode view on a virtual player](../virtual-players/virtual-players-focus) | Switch the Multiplayer Play Mode view between players. |
+| [Enable Virtual Players](../virtual-players/virtual-players-enable)   | Set up Virtual Players and assign Player Tags.         |
+| [Focus the Multiplayer Play Mode view on a Virtual Player](../virtual-players/virtual-players-focus) | Switch the Multiplayer Play Mode view between players. |
 
