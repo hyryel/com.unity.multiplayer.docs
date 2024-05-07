@@ -1,6 +1,6 @@
 ---
 id: target-team
-title: Use player tags to assign a player to a team
+title: Use Player Tags to assign a player to a team
 description: Automatically assign Players to different teams in Multiplayer Play Mode.
 ---
 

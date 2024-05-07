@@ -20,6 +20,6 @@ You can assign multiple tags to a player.
 
 |**Page** |**Description**|
 |-|-|
-|[Create Player Tag](../player-tags/player-tags-create)| Learn how to create player tags in code.|
-|[Configure Player tag](../player-tags/player-tags-configure)| Learn how to set up player tags to work in your project|
+|[Create Player Tag](../player-tags/player-tags-create)| Learn how to create Player Tags in code.|
+|[Configure Player Tag](../player-tags/player-tags-configure)| Learn how to set up Player Tags to work in your project|
 |[Attach a Player Tag to a player](../player-tags/player-tags-attach)| Learn how to assign tags to a specific player.|

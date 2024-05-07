@@ -4,7 +4,7 @@ title: Configure Player Tags
 description: Set up Player Tags to use them to configure the player actions.
 ---
 
-Player Tags don't do anything until you configure them. To configure a player tag, do the following:
+Player Tags don't do anything until you configure them. To configure a Player Tag, do the following:
 
 1. Use `CurrentPlayer.ReadOnlyTags()` to target the Player Tag in a script.
 2. Attach the script to a [NetworkObject](https://docs-multiplayer.unity3d.com/netcode/current/basics/networkobject/), for example, the **Player**.
