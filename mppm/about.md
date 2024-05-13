@@ -24,7 +24,7 @@ The Unity Editor and Virtual Players require a lot of system resources, so you s
 
 ### Authoring
 
-Virtual Players have restricted authoring capabilities because they're intended as a vehicle to open multiple project runtimes, not provide a multi-editor authoring workflow. You should use the Main Editor to make changes and the Virtual Players to test multiplayer functionality.
+You can't create or change the properties of GameObjects in a Virtual Player. Instead, use the Main Editor to make changes and a Virtual Player to test multiplayer functionality. Any changes you make in Play Mode in the Main Editor reset when you exit Play Mode. 
 
 :::note
 You can't access any Main Editor functionality from Virtual Players.
