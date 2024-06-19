@@ -123,7 +123,7 @@ To run these commands on a single line:
 Here's an example of what your command might look like when you replace the placeholder text in `< >`:
 
 ```cmd
-<path to project>\HelloWorld.exe -mode server & <path to project>\HelloWorld.exe -mode client
+C:\Temp\HelloWorld.exe -mode server & C:\Temp\HelloWorld.exe -mode client
 ```
 
 :::important
