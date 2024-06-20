@@ -274,25 +274,25 @@ public class RpcTest : NetworkBehaviour
     {
         if (!IsServer && IsOwner) //Only send an RPC to the server from the client that owns the NetworkObject of this NetworkBehaviour instance
         {
-            ServerOnlyRpc(0, NetworkObjectId);
+            ServerOnlyRpcServerRpc(0, NetworkObjectId);
         }
     }
 
-    [Rpc(SendTo.ClientsAndHost)]
-    void ClientAndHostRpc(int value, ulong sourceNetworkObjectId)
+    [ClientRpc]
+    void ClientAndHostClientRpc(int value, ulong sourceNetworkObjectId)
     {
         Debug.Log($"Client Received the RPC #{value} on NetworkObject #{sourceNetworkObjectId}");
         if (IsOwner) //Only send an RPC to the owner of the NetworkObject
         {
-            ServerOnlyRpc(value + 1, sourceNetworkObjectId);
+            ServerOnlyServerRpc(value + 1, sourceNetworkObjectId);
         }
     }
 
-    [Rpc(SendTo.Server)]
-    void ServerOnlyRpc(int value, ulong sourceNetworkObjectId)
+    [ServerRpc]
+    void ServerOnlyServerRpc(int value, ulong sourceNetworkObjectId)
     {
         Debug.Log($"Server Received the RPC #{value} on NetworkObject #{sourceNetworkObjectId}");
-        ClientAndHostRpc(value, sourceNetworkObjectId);
+        ClientAndHostClientRpc(value, sourceNetworkObjectId);
     }
 }
 ```
@@ -379,11 +379,11 @@ namespace HelloWorld
 
         public void Move()
         {
-            SubmitPositionRequestRpc();
+            SubmitPositionRequestServerRpc();
         }
 
-        [Rpc(SendTo.Server)]
-        void SubmitPositionRequestRpc(RpcParams rpcParams = default)
+        [ServerRpc]
+        void SubmitPositionRequestServerRpc(RpcParams rpcParams = default)
         {
             var randomPosition = GetRandomPositionOnPlane();
             transform.position = randomPosition;
@@ -434,11 +434,11 @@ If the current player is the server, the code determines a random position to sp
 ```csharp
         public void Move()
         {
-            SubmitPositionRequestRpc();
+            SubmitPositionRequestServerRpc();
         }
 
-        [Rpc(SendTo.Server)]
-        void SubmitPositionRequestRpc(RpcParams rpcParams = default)
+        [ServerRpc]
+        void SubmitPositionRequestServerRpc(RpcParams rpcParams = default)
         {
             var randomPosition = GetRandomPositionOnPlane();
             transform.position = randomPosition;
@@ -458,7 +458,7 @@ This section walks you through the `HelloWorldPlayer.cs` portion of the script t
 If the player is a server-owned player at `OnNetworkSpawn()`, you can immediately move this player, as suggested in the following code.
 
 ```csharp
-            SubmitPositionRequestRpc();
+            SubmitPositionRequestServerRpc();
 ```
 
 You can call this `Rpc` when the player is a client or a server. When you call an `Rpc` with `SendTo.Server`  on the server side, it executes in the same way as a local function call by default.
@@ -466,8 +466,8 @@ You can call this `Rpc` when the player is a client or a server. When you call a
 The `Rpc` sets the position NetworkVariable on the server's instance of the player by just picking a random point on the plane.
 
 ```csharp
-       [Rpc(SendTo.Server)]
-        void SubmitPositionRequestRpc(RpcParams rpcParams = default)
+       [ServerRpc]
+        void SubmitPositionRequestServerRpc(RpcParams rpcParams = default)
         {
             var randomPosition = GetRandomPositionOnPlane();
             transform.position = randomPosition;
